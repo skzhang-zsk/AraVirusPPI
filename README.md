@@ -5,7 +5,7 @@ Plant-virus protein-protein interactions (PPIs) play crucial roles in viral infe
 We provided the following data: the training set (Ara-virus_train.txt), the test set (Ara-virus_test.txt), and the corresponding protein sequences (Ara-virus.fasta).
 
 # Features
-The feature file Ara-virus_ESMC_1152.pkl contains the features extracted using the esmc-600m-2024-12 model, a protein language model (ESM Cambrian, ESMC), which was used for model training and test. This model can be accessed at Hugging Face (https://huggingface.co/EvolutionaryScale/esmc-600m-2024-12).
+The feature file Ara-virus_ESMC_1152.pkl contains the features extracted using the ESMC (esmc-600m-2024-12) model, which was used for model training and test. This model can be accessed at Hugging Face (https://huggingface.co/EvolutionaryScale/esmc-600m-2024-12).
 
 # Scripts
 This section includes the training process for the XGBoost model. The script outlines the steps for training the model using the provided datasets, including:
