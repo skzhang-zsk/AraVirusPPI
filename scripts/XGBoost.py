@@ -27,8 +27,8 @@ test = np.genfromtxt('./data/Ara-virus_test.txt', str)
 X_train, y_train = train[:, :2], train[:, 2].astype(np.float32)
 X_test, y_test = test[:, :2], test[:, 2].astype(np.float32)
 
-x_train = np.array([np.hstack([protein_data[b], protein_data[a]]) for a, b in X_train])
-x_test = np.array([np.hstack([protein_data[b], protein_data[a]]) for a, b in X_test])
+x_train = np.array([np.hstack([protein_data[a], protein_data[b]]) for a, b in X_train])
+x_test = np.array([np.hstack([protein_data[a], protein_data[b]]) for a, b in X_test])
 print(len(x_train[0]))
 
 
