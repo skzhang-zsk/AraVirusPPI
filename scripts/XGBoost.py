@@ -31,7 +31,6 @@ x_train = np.array([np.hstack([protein_data[a], protein_data[b]]) for a, b in X_
 x_test = np.array([np.hstack([protein_data[a], protein_data[b]]) for a, b in X_test])
 print(len(x_train[0]))
 
-
 model = xgb.XGBClassifier()
 params = {
             'booster': ['gbtree'], 
@@ -68,7 +67,6 @@ for fold, (train_index,val_index) in enumerate(kf.split(X_train,y_train)):
     y_pred_k.extend(y_pred)  #predict label
     y_score = XGBoost_best_model.predict_proba(x_val_kf)
     y_score_list.extend(y_score[:,1])  #predict 1 score
-
 
     y_score_test = XGBoost_best_model.predict_proba(x_test)  #predict score
     y_score_test_list[fold].extend(y_score_test[:,1])  #predict 1 score list
