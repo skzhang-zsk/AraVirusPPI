@@ -28,3 +28,14 @@ The output includes the five models trained using 5-fold cross-validation with A
 
 (2) ESMC_XGBoost_test.txt: Contains the prediction scores on the independent test set using the 5 models, along with the averaged results.
 
+# Usage
+
+To make predictions using the pre-trained models, follow these steps:
+
+### Run the Prediction Script
+
+To use the `predict.py` script, execute the following command:
+
+```bash
+python predict.py
+
