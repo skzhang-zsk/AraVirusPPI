@@ -30,7 +30,7 @@ The output includes the five models trained using 5-fold cross-validation with A
 
 # Usage
 
-To make predictions using the pre-trained models, follow these steps:
+To make predictions using the pre-trained models, follow this step:
 
 ### Run the Prediction Script
 
