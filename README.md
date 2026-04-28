@@ -18,7 +18,7 @@ python ESMC_embeddings.py
 You can access and download the ESMC model from Hugging Face at the following link: https://huggingface.co/EvolutionaryScale/esmc-600m-2024-12
 
 # Scripts
-This section includes the training process for the XGBoost model. The script outlines the steps for training the model using the provided datasets, including:
+This section includes the training process for the **XGBoost** model. The script outlines the steps for training the model using the provided datasets, including:
 
 1. Data preprocessing
 2. Feature extraction (using the **esmc-600m-2024-12** model)
