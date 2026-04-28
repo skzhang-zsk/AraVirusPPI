@@ -20,6 +20,18 @@ This section includes the training process for the XGBoost model. The script out
 
 (5) Predicting on the independent test set
 
+1. **Data preprocessing**
+2. **Feature extraction** (using the **esmc-600m-2024-12** model)
+3. **Training the XGBoost model with 5-fold cross-validation**
+4. **Evaluating model performance** using cross-validation scores
+5. **Predicting on the independent test set**
+
+### Training Process
+
+To train the XGBoost model, run the following command:
+
+```bash
+python XGBoost.py ESMC
 
 # Output
 The output includes the five models trained using 5-fold cross-validation with AraVirusPPI, along with the cross-validation scores and the scores obtained by using these models to predict the independent test set. The results are stored in the following files: 
