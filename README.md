@@ -34,11 +34,6 @@ python XGBoost.py ESMC
 ```
 
 # Output
-The output includes the five models trained using 5-fold cross-validation with AraVirusPPI, along with the cross-validation scores and the scores obtained by using these models to predict the independent test set. The results are stored in the following files: 
-1. ESMC_XGBoost_5fold.txt: Contains the scores from the 5-fold cross-validation. 
-2. ESMC_XGBoost_test.txt: Contains the prediction scores on the independent test set using the 5 models, along with the averaged results.
-
-# Output
 The output includes the five models trained using 5-fold cross-validation with AraVirusPPI, along with the cross-validation scores and the scores obtained by using these models to predict the independent test set. The results are stored in the following files:
 1. 5fold_models: This folder contains the five models, each trained using a different fold of the 5-fold cross-validation.
 2. `ESMC_XGBoost_5fold.txt`: Contains the scores from 4-fold training and 1-fold validation. Each fold is used as the validation set once, with the process repeated 5 times.
