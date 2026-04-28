@@ -42,7 +42,7 @@ params = {
 GS_model=GridSearchCV(model, param_grid=params, scoring='average_precision',n_jobs=20,cv=5,verbose=3)
 GS_model.fit(x_train, y_train)
 
-output_path=f'./output/XGBoost/XGBoost+{protein_type}'
+output_path=f'../output'
 os.makedirs(output_path, exist_ok=True)
 
 XGBoost_best_model=GS_model.best_estimator_
