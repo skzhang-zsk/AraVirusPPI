@@ -1,3 +1,4 @@
+#Model training process
 import os
 import numpy as np
 import pickle
@@ -11,10 +12,10 @@ parser.add_argument("protein_type", type=str, choices=["ESM1b", "ESM2", "ESMC", 
 args = parser.parse_args()
 
 protein_files = {
-    #"ESM1b": "./features/Ath-virus_ESM1b_1280.pkl",
-    #"ESM2": "./features/Ath-virus_ESM2_1280.pkl",
-    "ESMC": "./features/Ath-virus_ESMC_1152.pkl",
-    #"ProtT5": "./features/Ath-virus_ProtT5_1024.pkl" 
+    #"ESM1b": "../features/Ara-virus_ESM1b_1280.pkl",
+    #"ESM2": "../features/Ara-virus_ESM2_1280.pkl",
+    "ESMC": "../features/Ara-virus_ESMC_1152.pkl",
+    #"ProtT5": "../features/Ara-virus_ProtT5_1024.pkl" 
 }
 protein_type = args.protein_type
 
@@ -22,8 +23,8 @@ protein_file = protein_files[protein_type]
 with open(protein_file, 'rb') as f:
     protein_data = pickle.load(f)
 
-train = np.genfromtxt('./data/Ara-virus_train.txt', str)
-test = np.genfromtxt('./data/Ara-virus_test.txt', str)
+train = np.genfromtxt('../data/Ara-virus_train.txt', str)
+test = np.genfromtxt('../data/Ara-virus_test.txt', str)
 X_train, y_train = train[:, :2], train[:, 2].astype(np.float32)
 X_test, y_test = test[:, :2], test[:, 2].astype(np.float32)
 
@@ -38,7 +39,7 @@ params = {
             "max_depth" : range(5,16,5), "gamma": [0.0,0.2,0.5],
             "colsample_bytree" : [0.5,0.8,1], "n_jobs":[2] 
         }
-GS_model=GridSearchCV(model, param_grid=params, scoring='average_precision',n_jobs=15,cv=5,verbose=3)
+GS_model=GridSearchCV(model, param_grid=params, scoring='average_precision',n_jobs=20,cv=5,verbose=3)
 GS_model.fit(x_train, y_train)
 
 output_path=f'./output/XGBoost/XGBoost+{protein_type}'
