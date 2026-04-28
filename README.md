@@ -48,4 +48,7 @@ To use the `predict.py` script, execute the following command:
 
 ```bash
 python predict.py
+```
+You can use the provided `Ara-virus_toydata.txt` file for prediction, which contains sample data to test the model.
+
 
