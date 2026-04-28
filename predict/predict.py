@@ -8,7 +8,7 @@ import pandas as pd
 os.chdir("predict")
 model_path = f"../output/5fold_models"
 Ara_virus_embeddings_file = f"../features/Ath-virus_ESMC_1152.pkl"  # Replace with your own data embeddings
-pair_file = "./Ara-virus_pair.txt"
+pair_file = "./Ara-virus_toydata.txt"
 
 # 2. Load Protein Embedding Data
 with open(Ara_virus_embeddings_file, "rb") as f1:
