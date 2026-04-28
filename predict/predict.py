@@ -5,9 +5,8 @@ import numpy as np
 import pandas as pd
 
 # 1. Set Paths
-os.chdir("predict")
 model_path = f"../output/5fold_models"
-Ara_virus_embeddings_file = f"../features/Ath-virus_ESMC_1152.pkl"  # Replace with your own data embeddings
+Ara_virus_embeddings_file = f"../features/Ara-virus_ESMC_1152.pkl"  # Replace with your own data embeddings
 pair_file = "./Ara-virus_toydata.txt"
 
 # 2. Load Protein Embedding Data
@@ -54,10 +53,10 @@ df_result = pd.DataFrame({
     'Mean_Score': y_score_mean
 })
 
-output_file = f"./output/XGBoost+ESMC_Predictions.txt"
+output_file = f"./Ara-virus_toydata_score.txt"
 df_result.to_csv(output_file, sep="\t", index=False)
 
 # 9. Additional Output for Mean_Score > 0.5 
-filtered_output_file = f"./output/XGBoost+ESMC_Predictions_filtered.txt"
+filtered_output_file = f"./Ara-virus_toydata_score_filtered.txt"
 df_result[df_result['Mean_Score'] > 0.5].to_csv(filtered_output_file, index=False, sep='\t')
 
