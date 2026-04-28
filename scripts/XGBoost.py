@@ -39,7 +39,7 @@ params = {
             "max_depth" : range(5,16,5), "gamma": [0.0,0.2,0.5],
             "colsample_bytree" : [0.5,0.8,1], "n_jobs":[2] 
         }
-GS_model=GridSearchCV(model, param_grid=params, scoring='average_precision',n_jobs=20,cv=5,verbose=3)
+GS_model=GridSearchCV(model, param_grid=params, scoring='roc_auc',n_jobs=20,cv=5,verbose=3)
 GS_model.fit(x_train, y_train)
 
 output_path=f'../output'
