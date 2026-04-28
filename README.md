@@ -38,17 +38,19 @@ The output includes the five models trained using 5-fold cross-validation with A
 1. ESMC_XGBoost_5fold.txt: Contains the scores from the 5-fold cross-validation. 
 2. ESMC_XGBoost_test.txt: Contains the prediction scores on the independent test set using the 5 models, along with the averaged results.
 
+# Output
+The output includes the five models trained using 5-fold cross-validation with AraVirusPPI, along with the cross-validation scores and the scores obtained by using these models to predict the independent test set. The results are stored in the following files:
+1. 5fold_models: This folder contains the five models, each trained using a different fold of the 5-fold cross-validation.
+2. ESMC_XGBoost_5fold.txt: Contains the scores from 4-fold training and 1-fold validation. Each fold is used as the validation set once, with the process repeated 5 times.
+3. ESMC_XGBoost_test.txt: Contains the prediction scores from the five models on the independent test set, along with the averaged results from these predictions.
+
 # Usage
-
 To make predictions using the pre-trained models, follow this step:
-
 ### Run the Prediction Script
-
 To use the `predict.py` script, execute the following command:
-
 ```bash
 python predict.py
 ```
-You can use the provided `Ara-virus_toydata.txt` file for prediction, which contains sample data to test the model.
+You can use the provided Ara-virus_toydata.txt file for prediction, which contains sample data to generate prediction results.
 
 
