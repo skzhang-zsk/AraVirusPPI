@@ -21,7 +21,7 @@ You can access and download the ESMC model from Hugging Face at the following li
 This section includes the training process for the **XGBoost** model. The script outlines the steps for training the model using the provided datasets, including:
 
 1. Data preprocessing
-2. Feature extraction (using the **esmc-600m-2024-12** model)
+2. Feature extraction (using the esmc-600m-2024-12 model)
 3. Training the XGBoost model with 5-fold cross-validation
 4. Evaluating model performance using cross-validation scores
 5. Predicting on the independent test set
