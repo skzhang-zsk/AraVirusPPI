@@ -59,7 +59,7 @@ for fold, (train_index,val_index) in enumerate(kf.split(X_train,y_train)):
 
     model_path = f'{output_path}/5fold_models'
     os.makedirs(model_path, exist_ok=True)
-    with open(f'{model_path}/XGBoost+{protein_type}_model_fold{fold}.pkl', 'wb') as model_file:
+    with open(f'{model_path}/{protein_type}_XGBoost_model_fold{fold}.pkl', 'wb') as model_file:
         pickle.dump(XGBoost_best_model, model_file)
     
     protein1_2_list.extend(X_train[val_index])  #protein1+'\t'+protein2
@@ -73,13 +73,13 @@ for fold, (train_index,val_index) in enumerate(kf.split(X_train,y_train)):
     y_score_test_list[fold].extend(y_score_test[:,1])  #predict 1 score list
 
 
-with open(f'{output_path}/XGBoost+{protein_type}_5fold.txt', 'w') as f:
+with open(f'{output_path}/{protein_type}_XGBoost_5fold.txt', 'w') as f:
     f.write('protein1\tprotein2\tlabel\tpredict\tpredict_probability\n')
     for i in range(len(y_label_list)):
         f.write(f"{protein1_2_list[i][0]}\t{protein1_2_list[i][1]}\t{y_label_list[i]}\t{y_pred_k[i]}\t{y_score_list[i]}\n")
 
 mean_score = np.mean(y_score_test_list, axis=0)
-with open(f'{output_path}/XGBoost+{protein_type}_test.txt', 'w') as f:
+with open(f'{output_path}/{protein_type}_XGBoost_test.txt', 'w') as f:
     f.write('protein1\tprotein2\tlabel\t' + '\t'.join([f'predict_probability{i+1}' for i in range(5)]) + '\tmean_probability\n')
     for j in range(len(y_score_test_list[0])):
         f.write(f"{X_test[j][0]}\t{X_test[j][1]}\t{y_test[j]}\t" + '\t'.join([str(y_score_test_list[i][j]) for i in range(5)]) + f"\t{mean_score[j]}\n")
