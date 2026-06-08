@@ -1,4 +1,3 @@
-
 import os
 import pickle
 import numpy as np
@@ -34,7 +33,7 @@ X_test = transform_features(protein_pairs, Ara_virus_embeddings)
 # 5. Load 5 Models
 models = []
 for fold in range(5):
-    model_filename = f"{model_path}/XGboost+ESMC_model_fold{fold}.pkl"
+    model_filename = f"{model_path}/ESMC_XGBoost_model_fold{fold}.pkl"
     with open(model_filename, "rb") as model_file:
         model = pickle.load(model_file)
         models.append(model)
