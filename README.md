@@ -16,8 +16,8 @@ To run the script, execute the following command:
 python ESMC_embeddings.py -i ../data/Ara-virus.fasta -o Ara-virus_ESMC_1152.pkl
 ```
 where:
-- `-i`: the input protein FASTA file.
-- `-o`: the output pickle file containing ESMC embeddings.
+- `-i:` the input protein FASTA file.
+- `-o:` the output pickle file containing ESMC embeddings.
 
 You can access and download the ESMC model from Hugging Face at the following link: https://huggingface.co/EvolutionaryScale/esmc-600m-2024-12
 
@@ -60,10 +60,10 @@ To use the `predict.py` script, execute the following command:
 python predict.py -m ../output/models -e ../features/Ara-virus_ESMC_1152.pkl -i Ara-virus_toydata.txt -o Ara-virus_toydata_score.txt
 ```
 where:
-- `-m`: the path to the pre-trained AraVirusPPI models.
-- `-e`: the protein embedding pickle file.
-- `-i`: the input protein pair file for prediction.
-- `-o`: the output prediction result file.
+- `-m:` the path to the pre-trained AraVirusPPI models.
+- `-e:` the protein embedding pickle file.
+- `-i:` the input protein pair file for prediction.
+- `-o:` the output prediction result file.
 
 The provided `Ara-virus_toydata.txt` file contains example protein pairs and can be used to generate prediction results.
 
