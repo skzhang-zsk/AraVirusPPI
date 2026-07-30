@@ -45,38 +45,31 @@ GS_model.fit(x_train, y_train)
 output_path=f'../output'
 os.makedirs(output_path, exist_ok=True)
 
-XGBoost_best_model=GS_model.best_estimator_
-protein1_2_list, y_label_list, y_pred_k, y_score_list=[], [], [], []
-y_score_test_list = [[] for _ in range(5)] 
+# Save the internal cross-validation performance from GridSearchCV
+with open(f'{output_path}/{protein_type}_XGBoost_parameter.txt', 'w') as model_parameter:
+    model_parameter.write(f'Best_AUC\t{GS_model.best_score_}\n')
+    model_parameter.write(f'Best_Params\t{GS_model.best_params_}\n')
 
-kf = StratifiedKFold(n_splits=5,shuffle=True,random_state=42)
+# Train five models using the optimal hyperparameters for ensemble prediction on the independent test set
+y_score_test_list = [[] for _ in range(5)]
 
-for fold, (train_index,val_index) in enumerate(kf.split(X_train,y_train)):
+kf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
-    x_train_kf,x_val_kf = x_train[train_index],x_train[val_index]
-    y_train_kf,y_val_kf = y_train[train_index],y_train[val_index]
-    XGBoost_best_model.fit(x_train_kf,y_train_kf)
+for fold, (train_index, val_index) in enumerate(kf.split(X_train, y_train)):
+
+    x_train_kf = x_train[train_index]
+    y_train_kf = y_train[train_index]
+
+    model = xgb.XGBClassifier(**GS_model.best_params_, random_state=42)
+    model.fit(x_train_kf, y_train_kf)
 
     model_path = f'{output_path}/5fold_models'
     os.makedirs(model_path, exist_ok=True)
     with open(f'{model_path}/{protein_type}_XGBoost_model_fold{fold}.pkl', 'wb') as model_file:
-        pickle.dump(XGBoost_best_model, model_file)
-    
-    protein1_2_list.extend(X_train[val_index])  #protein1+'\t'+protein2
-    y_label_list.extend(y_val_kf)  #label
-    y_pred = XGBoost_best_model.predict(x_val_kf)
-    y_pred_k.extend(y_pred)  #predict label
-    y_score = XGBoost_best_model.predict_proba(x_val_kf)
-    y_score_list.extend(y_score[:,1])  #predict 1 score
+        pickle.dump(model, model_file)
 
-    y_score_test = XGBoost_best_model.predict_proba(x_test)  #predict score
-    y_score_test_list[fold].extend(y_score_test[:,1])  #predict 1 score list
-
-
-with open(f'{output_path}/{protein_type}_XGBoost_5fold.txt', 'w') as f:
-    f.write('protein1\tprotein2\tlabel\tpredict\tpredict_probability\n')
-    for i in range(len(y_label_list)):
-        f.write(f"{protein1_2_list[i][0]}\t{protein1_2_list[i][1]}\t{y_label_list[i]}\t{y_pred_k[i]}\t{y_score_list[i]}\n")
+    y_score_test = model.predict_proba(x_test)
+    y_score_test_list[fold].extend(y_score_test[:,1])
 
 mean_score = np.mean(y_score_test_list, axis=0)
 with open(f'{output_path}/{protein_type}_XGBoost_test.txt', 'w') as f:
