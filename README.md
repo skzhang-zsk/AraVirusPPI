@@ -1,7 +1,7 @@
 # AraVirusPPI
 Plant-virus protein-protein interactions (PPIs) play crucial roles in viral infection and host immune responses, yet their systematic identification remains limited by experimental constraints. We present **AraVirusPPI**, the first machine learning-based *A. thaliana*-virus PPI predictor. AraVirusPPI employs the protein language model ESM Cambrian (ESMC) to encode sequence features and combines these representations with Extreme Gradient Boosting (XGBoost) to build the prediction model.
 
-# Data
+# Dataset
 We provided the following data:
 1. **Positive-Negative Samples**: `Ara-virus_positive-negative.txt` — Contains both positive and negative samples, which are used for training and testing the model.
 2. **Training Set**: `Ara-virus_train.txt` — Contains the training data for model training.
