@@ -19,8 +19,10 @@ To run the script, execute the following command:
 python ESMC_embeddings.py -i ../data/Ara-virus.fasta -o Ara-virus_ESMC_1152.pkl
 ```
 where:
-- `-i`: the input protein FASTA file.
-- `-o`: the output file containing ESMC embeddings.
+- `-h, --help`: Display help information.
+- `-i, --input`: The input protein FASTA file.
+- `-o, --output`: The output file containing ESMC embeddings.
+- `-d", "--device`: The device used for embedding generation (default: GPU 0).
 
 You can access and download the ESMC model from Hugging Face at the following link: https://huggingface.co/EvolutionaryScale/esmc-600m-2024-12
 
@@ -48,10 +50,12 @@ To use the `predict.py` script, execute the following command:
 python predict.py -m ../output/models -e ../features/Ara-virus_ESMC_1152.pkl -i Ara-virus_toydata.txt -o Ara-virus_toydata_score.txt
 ```
 where:
-- `-m`: the path to the AraVirusPPI models.
-- `-e`: the protein embeddings file.
-- `-i`: the input protein pair file for prediction.
-- `-o`: the output prediction result file.
+- `-h, --help`: Display help information.
+- `-m, --model_path`: The path to the AraVirusPPI models.
+- `-e, --embedding`: The protein embeddings file.
+- `-i, --input`: The input protein pair file for prediction.
+- `-o, --output`: The output prediction result file.
+- `-t, --threshold`: Prediction threshold for filtered predictions (default: 0.5).
 
 The provided `Ara-virus_toydata.txt` file contains example protein pairs and can be used to generate prediction results.
 
