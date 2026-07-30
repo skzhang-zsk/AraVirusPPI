@@ -63,7 +63,7 @@ for fold, (train_index, val_index) in enumerate(kf.split(X_train, y_train)):
     model = xgb.XGBClassifier(**GS_model.best_params_, random_state=42)
     model.fit(x_train_kf, y_train_kf)
 
-    model_path = f'{output_path}/5fold_models'
+    model_path = f'{output_path}/models'
     os.makedirs(model_path, exist_ok=True)
     with open(f'{model_path}/{protein_type}_XGBoost_model_fold{fold}.pkl', 'wb') as model_file:
         pickle.dump(model, model_file)
