@@ -52,4 +52,18 @@ python predict.py
 ```
 You can use the provided Ara-virus_toydata.txt file for prediction, which contains sample data to generate prediction results.
 
+# Usage
+To make predictions using the pre-trained models, follow this step:
+### Run the Prediction Script
+To use the `predict.py` script, execute the following command:
+```bash
+python predict.py -m ../output/models -e ../features/Ara-virus_ESMC_1152.pkl -i Ara-virus_toydata.txt -o Ara-virus_toydata_score.txt
+```
+where:
+- `-m` specifies the path to the pre-trained AraVirusPPI models.
+- `-e` specifies the protein embedding pickle file.
+- `-i` specifies the input protein pair file for prediction.
+- `-o` specifies the output prediction result file.
+
+The provided `Ara-virus_toydata.txt` file contains example protein pairs and can be used to generate prediction results.
 
