@@ -16,8 +16,8 @@ To run the script, execute the following command:
 python ESMC_embeddings.py -i ../data/Ara-virus.fasta -o Ara-virus_ESMC_1152.pkl
 ```
 where:
-`-i` specifies the input protein FASTA file.
-`-o` specifies the output pickle file containing ESMC embeddings.
+- `-i` specifies the input protein FASTA file.
+- `-o` specifies the output pickle file containing ESMC embeddings.
 
 You can access and download the ESMC model from Hugging Face at the following link: https://huggingface.co/EvolutionaryScale/esmc-600m-2024-12
 
