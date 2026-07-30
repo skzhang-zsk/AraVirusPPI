@@ -25,7 +25,7 @@ where:
 You can access and download the ESMC model from Hugging Face at the following link: https://huggingface.co/EvolutionaryScale/esmc-600m-2024-12
 
 # Scripts
-The **XGBoost.py** script trains the XGBoost-based AraVirusPPI model using ESMC protein embeddings.
+The **XGBoost.py** script trains the AraVirusPPI model using XGBoost with ESMC protein embeddings.
 
 ### Training Process
 To train the model, run:
@@ -35,19 +35,10 @@ python XGBoost.py ESMC
 ```
 
 # Output
-The output includes the five models trained using 5-fold cross-validation with AraVirusPPI, along with the cross-validation scores and the scores obtained by using these models to predict the independent test set. The results are stored in the following files:
-1. `models`: This folder contains the five models, each trained using a different fold of the 5-fold cross-validation.
-2. `ESMC_XGBoost_parameter.txt`: Contains the scores from 4-fold training and 1-fold validation. Each fold is used as the validation set once, with the process repeated 5 times.
-3. `ESMC_XGBoost_test.txt`: Contains the prediction scores from the five models on the independent test set, along with the averaged results from these predictions.
-
-# Usage
-To make predictions using the pre-trained models, follow this step:
-### Run the Prediction Script
-To use the `predict.py` script, execute the following command:
-```bash
-python predict.py
-```
-You can use the provided Ara-virus_toydata.txt file for prediction, which contains sample data to generate prediction results.
+The output includes the five models trained using 5-fold cross-validation, along with the cross-validation performance and prediction results on the independent test set. The results are stored in the following files:
+1. `models`: Contains the five XGBoost models trained using different folds of the 5-fold cross-validation.
+2. `ESMC_XGBoost_parameter.txt`: Contains the best cross-validation AUC score and the corresponding optimal model parameters identified during hyperparameter optimization.
+3. `ESMC_XGBoost_test.txt`: Contains the prediction scores from the five models on the independent test set, together with the averaged prediction score.
 
 # Usage
 To make predictions using the pre-trained models, follow this step:
