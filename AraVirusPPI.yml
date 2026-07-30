@@ -133,4 +133,3 @@ dependencies:
       - wcwidth==0.8.2
       - xgboost==2.0.3
       - zstd==1.5.7.2
-prefix: /home/skzhang/anaconda3/envs/AraVirusPPI
