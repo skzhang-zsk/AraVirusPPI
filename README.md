@@ -18,7 +18,7 @@ To run the script, execute the following command:
 ```bash
 python ESMC_embeddings.py -i ../data/Ara-virus.fasta -o Ara-virus_ESMC_1152.pkl
 ```
-arguments:
+Arguments:
 - `-h, --help`: Display help information.
 - `-i, --input`: The input protein FASTA file.
 - `-o, --output`: The output file containing ESMC embeddings.
@@ -49,7 +49,7 @@ To use the `predict.py` script, execute the following command:
 ```bash
 python predict.py -m ../output/models -e ../features/Ara-virus_ESMC_1152.pkl -i Ara-virus_toydata.txt -o Ara-virus_toydata_score.txt
 ```
-arguments:
+Arguments:
 - `-h, --help`: Display help information.
 - `-m, --model_path`: The path to the AraVirusPPI models.
 - `-e, --embedding`: The protein embeddings file.
