@@ -1,0 +1,2 @@
+Best_AUC	0.9099459222919697
+Best_Params	{'booster': 'gbtree', 'colsample_bytree': 0.5, 'gamma': 0.0, 'learning_rate': 0.05, 'max_depth': 10, 'n_estimators': 200, 'n_jobs': 2}
