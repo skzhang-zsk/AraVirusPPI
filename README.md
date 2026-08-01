@@ -11,6 +11,7 @@ We provided the following data:
 3. **Test Set**: `Ara-virus_test.txt` — Contains the test data for model evaluation.
 4. **Protein Sequences**: `Ara-virus.fasta` — Contains the corresponding protein sequences in FASTA format.
 5. **Additional Independent Test Set**: `Additional_independent_test.txt` — Contains an additional independent dataset of unseen virus species used for model evaluation.
+6. **Additional Independent Test Protein Sequences**: `Additional_independent_test.fasta` — Contains the corresponding protein sequences of the additional independent test set in FASTA format.
 
 # Features
 The **ESMC_embeddings.py** script extracts embeddings from the **ESMC** (esmc-600m-2024-12) model using protein sequences in FASTA format. Running the script will generate the embeddings, and here we generate the embeddings for Ara-virus, which are saved in the feature file `Ara-virus_ESMC_1152.pkl`.
