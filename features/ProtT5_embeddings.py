@@ -20,7 +20,7 @@ else:
     print("Using CPU")
 
 # Load ProtT5 model
-model_name = "../ProtT5/prot_t5_xl_half_uniref50-enc"
+model_name = "prot_t5_xl_half_uniref50-enc"
 print("Loading:", model_name)
 tokenizer = T5Tokenizer.from_pretrained(model_name, do_lower_case=False)
 model = T5EncoderModel.from_pretrained(model_name).to(device)
