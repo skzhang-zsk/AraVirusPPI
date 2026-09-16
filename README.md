@@ -14,18 +14,22 @@ We provided the following data:
 6. **Additional Independent Test Protein Sequences**: `Additional_independent_test.fasta` — Contains the corresponding protein sequences of the additional independent test set in FASTA format.
 
 # Features
-The **ESMC_embeddings.py** script extracts embeddings from the **ESMC** (esmc-600m-2024-12) model using protein sequences in FASTA format. Running the script will generate the embeddings, and here we generate the embeddings for Ara-virus, which are saved in the feature file `Ara-virus_ESMC_1152.pkl`.
+The **ESMC_embeddings.py** script extracts embeddings from the **ESMC** (esmc-600m-2024-12) model using protein sequences in FASTA format. Running the script will generate the embeddings, and here we generate the embeddings for Ara-virus, which are saved in the feature file `Ara-virus_ESMC_1152.pkl`. Similarly, the ESM-1b, ESM-2, and ProtT5 models can be used to generate protein embeddings with the corresponding scripts.
 
 To run the script, execute the following command:
 ```bash
 python ESMC_embeddings.py -i ../data/Ara-virus.fasta -o Ara-virus_ESMC_1152.pkl
+python ESM1b_ESM2_embeddings.py -i ../data/Ara-virus.fasta -o Ara-virus_ESM1b_1280.pkl
+python ESM1b_ESM2_embeddings.py -i ../data/Ara-virus.fasta -o Ara-virus_ESM2_1280.pkl
+python ProtT5_embeddings.py -i ../data/Ara-virus.fasta -o Ara-virus_ProtT5_1024.pkl
 ```
 - `-h, --help`: Display help information.
 - `-i, --input`: The input protein FASTA file.
 - `-o, --output`: The output file containing ESMC embeddings.
-- `-d", "--device`: The device used for embedding generation (default: GPU 0).
+- `-d, --device`: The device used for embedding generation (default: GPU 0).
+- `-l, --truncation_seq_length`: The maximum sequence length used for embedding generation (ESM-1b and ESM-2 only; default: 1022).
 
-You can access and download the ESMC model from Hugging Face at the following link: https://huggingface.co/EvolutionaryScale/esmc-600m-2024-12
+You can access and download the models from Hugging Face at the following link: https://huggingface.co/EvolutionaryScale/esmc-600m-2024-12, https://huggingface.co/facebook/esm1b_t33_650M_UR50S, https://huggingface.co/facebook/esm2_t33_650M_UR50D,  https://huggingface.co/Rostlab/prot_t5_xl_half_uniref50-enc
 
 # Scripts
 The **XGBoost.py** script trains the AraVirusPPI model using XGBoost with ESMC protein embeddings.
