@@ -40,7 +40,7 @@ for i, protein_sequence in enumerate(sequences):
     # Obtain logits (embeddings) for the protein
     logits_output = client.logits(
         protein_tensor, LogitsConfig(sequence=True, return_embeddings=True)
-    )  # Output shape: torch.Size([1, sequence+2, 1152])
+    )
     
     # Calculate the mean of the embeddings
     embedding_mean = torch.mean(logits_output.embeddings[0], dim=0)
