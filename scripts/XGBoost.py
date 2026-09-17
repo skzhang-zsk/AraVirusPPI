@@ -12,10 +12,10 @@ parser.add_argument("protein_type", type=str, choices=["ESM1b", "ESM2", "ESMC", 
 args = parser.parse_args()
 
 protein_files = {
-    #"ESM1b": "../features/Ara-virus_ESM1b_1280.pkl",
-    #"ESM2": "../features/Ara-virus_ESM2_1280.pkl",
+    "ESM1b": "../features/Ara-virus_ESM1b_1280.pkl",
+    "ESM2": "../features/Ara-virus_ESM2_1280.pkl",
     "ESMC": "../features/Ara-virus_ESMC_1152.pkl",
-    #"ProtT5": "../features/Ara-virus_ProtT5_1024.pkl" 
+    "ProtT5": "../features/Ara-virus_ProtT5_1024.pkl" 
 }
 protein_type = args.protein_type
 
